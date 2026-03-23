@@ -2,7 +2,7 @@ const TelegramBot = require('node-telegram-bot-api');
 const axios = require('axios');
 const fs = require('fs');
 const path = require('path');
-const { v4: uuidv4 } = require('crypto');
+const crypto = require('crypto');
 require('dotenv').config();
 
 const TELEGRAM_TOKEN = process.env.TELEGRAM_TOKEN;
@@ -77,7 +77,7 @@ function getUserChats(userId) {
 
 // Создать новый чат
 function createNewChat(userId, name = null) {
-    const chatId = uuidv4().substring(0, 8);
+    const chatId = crypto.randomUUID().substring(0, 8);
     if (!name) {
         const now = new Date();
         name = `Чат ${now.toLocaleDateString('ru-RU', { day: '2-digit', month: '2-digit' })} ${now.toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' })}`;
