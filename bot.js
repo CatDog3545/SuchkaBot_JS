@@ -7,7 +7,7 @@ require('dotenv').config();
 
 const TELEGRAM_TOKEN = process.env.TELEGRAM_TOKEN;
 const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
-const MODEL = process.env.OPENROUTER_MODEL || 'google/gemma-2-9b-it:free';
+const MODEL = process.env.OPENROUTER_MODEL;
 
 const DATA_FILE = path.join(__dirname, 'user_data.json');
 
